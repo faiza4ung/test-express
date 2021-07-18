@@ -1,5 +1,7 @@
+require('dotenv').config()
 const user = require('../models/user.models')
 const bcrypt = require('bcryptjs')
+const jWT = require('jsonwebtoken')
 
 exports.daftarUser = async (req, res)=>{
     const {username, email,password}= req.body
@@ -23,7 +25,34 @@ exports.daftarUser = async (req, res)=>{
 }
 
 exports.loginUser = async (req, res) => {
-    return res.status(200).json({
-        message: 'berhasil'
-    })
+    const { username, password } = req.body
+
+    const cekLogin = await user.findOne({$or: [{username: username}, {email: username}]})
+    console.log(cekLogin)
+    if (cekLogin) {
+        // jika username cocok maka cek password
+        const passwordUser = await bcrypt.compare(password, cekLogin.password)
+        if (passwordUser) {
+            // jika password cocok maka lanjut proses ini
+            const data = {
+                id: cekLogin._id
+            }
+            const token = await jWT.sign(data, process.env.JWT_SECRET)
+            return res.status(200).json({
+                message: 'Token berhasil dibuat',
+                data: {
+                    username: username,
+                    token: token,
+                }
+            })
+        } else {
+            return res.status(400).json({
+                message: 'password salah',
+            })
+        }   
+    } else {
+        return res.status(400).json({
+            message: 'email atau username tidak tersedia',
+        })
+    }
 }
