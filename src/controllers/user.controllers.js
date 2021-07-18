@@ -1,12 +1,14 @@
 const user = require('../models/user.models')
+const bcrypt = require('bcryptjs')
 
-exports.daftarUser = (req,res)=>{
+exports.daftarUser = async (req, res)=>{
     const {username, email,password}= req.body
 
+    const hashPassword = await bcrypt.hash(password, 8) 
     const User = new user({
         username: username,
         email: email,
-        password: password,
+        password: hashPassword,
     })
 
     User.save()
@@ -18,4 +20,10 @@ exports.daftarUser = (req,res)=>{
     }).catch(err => {
         console.log('err: ', err);
     });
+}
+
+exports.loginUser = async (req, res) => {
+    return res.status(200).json({
+        message: 'berhasil'
+    })
 }
