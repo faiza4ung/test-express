@@ -45,7 +45,6 @@ exports.loginUser = async (req, res) => {
     const { username, password } = req.body
 
     const cekLogin = await user.findOne({$or: [{username: username}, {email: username}]})
-    console.log(cekLogin)
     if (cekLogin) {
         // jika username cocok maka cek password
         const passwordUser = await bcrypt.compare(password, cekLogin.password)
@@ -72,4 +71,12 @@ exports.loginUser = async (req, res) => {
             message: 'email atau username tidak tersedia',
         })
     }
+}
+
+exports.getSingleUser = async (req, res) => {
+    const User = await user.findOne({_id: req.id})
+    return res.status(200).json({
+        message: 'get berhasil dipanggil',
+        data: User
+    })
 }
