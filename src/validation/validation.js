@@ -16,3 +16,8 @@ exports.validasiDaftar = [
     check('email', 'email tidak boleh kosong').notEmpty().isEmail().withMessage('email yang anda masukan tidak valid'),
     check('password', 'password tidak boleh kosong').notEmpty().isLength({min: 6}).withMessage('password minimal 6 karakter')
 ]
+
+exports.validasiLogin = [
+    check('username', 'username tidak boleh kosong').notEmpty(),
+    check('password', 'password tidak boleh kosong').notEmpty(),
+]

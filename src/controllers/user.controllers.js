@@ -6,6 +6,23 @@ const jWT = require('jsonwebtoken')
 exports.daftarUser = async (req, res)=>{
     const {username, email,password}= req.body
 
+    const emailUser = await user.findOne({email: email})
+    const usernameUser = await user.findOne({username: username})
+
+    if(usernameUser) {
+        return res.status(404).json({
+            status: false,
+            message: 'username telah terdaftar, gunakan username lain'
+        })
+    }
+
+    if(emailUser) {
+        return res.status(404).json({
+            status: false,
+            message: 'email telah terdaftar, gunakan email lain'
+        })
+    }
+
     const hashPassword = await bcrypt.hash(password, 8) 
     const User = new user({
         username: username,
