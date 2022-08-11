@@ -1,19 +1,23 @@
 const express = require("express");
+const morgan = require("morgan");
+
+const tourRoute = require("./src/routes/tourRoute");
 
 const app = express();
-app.use(express.json())
+//** 1 MIDDLEWARE **/
+app.use(morgan("dev"));
 
-app.get("/", (req, res) => {
-  res
-    .status(200)
-    .json({ message: "Hello from server", app: "Kendalisada Tour" });
+app.use(express.json());
+
+app.use((req, res, next) => {
+  console.log("Punten dari middleware 👋");
+  next();
 });
 
-app.post("/", (req, res) => {
-  console.log(req.body);
-  res.status(201).json({ message: "POST METHOD" });
-});
+//** 2 ROUTES **/
+app.use("/api/v1/tours", tourRoute);
 
+//** 3 START SERVER **/
 const port = 3000;
 app.listen(port, () => {
   console.log(`App running on http://localhost/${port}...`);
