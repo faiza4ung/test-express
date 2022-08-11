@@ -4,7 +4,8 @@
   "description": "API Kendalisada Tour",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "prod": "NODE_ENV=production node server.js"
   },
   "author": "Ungguh Faizaturrohman",
   "license": "MIT",
