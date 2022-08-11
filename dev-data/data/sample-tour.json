@@ -1,0 +1,178 @@
+[
+    {
+        "name": "The Kendalisada Adventure",
+        "duration": 4,
+        "maxGroupSize": 8,
+        "difficulty": "easy",
+        "ratingAverage": 3.5,
+        "ratingQuantity": 3,
+        "price": 210,
+        "summary": "Exciting adventure in Forest",
+        "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
+        "imageCover": "tour-cover-1.jpg",
+        "images": [
+            "tour-1.jpg",
+            "tour-2.jpg",
+            "tour-3.jpg"
+        ],
+        "startDates": [
+            "2022-01-05,10:00",
+            "2022-11-12,10:00",
+            "2022-11-07,10:00"
+        ]
+    },
+    {
+        "name": "The Kendalisada Journey",
+        "duration": 4,
+        "maxGroupSize": 3,
+        "difficulty": "mid",
+        "ratingAverage": 2.5,
+        "ratingQuantity": 23,
+        "price": 100,
+        "summary": "Exciting adventure in Forest",
+        "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
+        "imageCover": "tour-cover-1.jpg",
+        "images": [
+            "tour-1.jpg",
+            "tour-2.jpg",
+            "tour-3.jpg"
+        ],
+        "startDates": [
+            "2022-01-05,10:00",
+            "2022-11-12,10:00",
+            "2022-11-07,10:00"
+        ]
+    },
+    {
+        "name": "The Kendalisada Touring",
+        "duration": 4,
+        "maxGroupSize": 9,
+        "difficulty": "easy",
+        "ratingAverage": 1.5,
+        "ratingQuantity": 6,
+        "price": 350,
+        "summary": "Exciting adventure in Forest",
+        "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
+        "imageCover": "tour-cover-1.jpg",
+        "images": [
+            "tour-1.jpg",
+            "tour-2.jpg",
+            "tour-3.jpg"
+        ],
+        "startDates": [
+            "2022-01-05,10:00",
+            "2022-11-12,10:00",
+            "2022-11-07,10:00"
+        ]
+    },
+    {
+        "name": "The Kendalisada Camp",
+        "duration": 4,
+        "maxGroupSize": 6,
+        "difficulty": "difficult",
+        "ratingAverage": 2.5,
+        "ratingQuantity": 16,
+        "price": 450,
+        "summary": "Exciting adventure in Forest",
+        "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
+        "imageCover": "tour-cover-1.jpg",
+        "images": [
+            "tour-1.jpg",
+            "tour-2.jpg",
+            "tour-3.jpg"
+        ],
+        "startDates": [
+            "2022-01-05,10:00",
+            "2022-11-12,10:00",
+            "2022-11-07,10:00"
+        ]
+    },
+    {
+        "name": "The Kendalisada Jamboree",
+        "duration": 4,
+        "maxGroupSize": 27,
+        "difficulty": "difficult",
+        "ratingAverage": 1.5,
+        "ratingQuantity": 13,
+        "price": 220,
+        "summary": "Exciting adventure in Forest",
+        "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
+        "imageCover": "tour-cover-1.jpg",
+        "images": [
+            "tour-1.jpg",
+            "tour-2.jpg",
+            "tour-3.jpg"
+        ],
+        "startDates": [
+            "2022-01-05,10:00",
+            "2022-11-12,10:00",
+            "2022-11-07,10:00"
+        ]
+    },
+    {
+        "name": "The Kendalisada Grand Camp V",
+        "duration": 4,
+        "maxGroupSize": 10,
+        "difficulty": "mid",
+        "ratingAverage": 5,
+        "ratingQuantity": 13,
+        "price": 135,
+        "summary": "Exciting adventure in Forest",
+        "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
+        "imageCover": "tour-cover-1.jpg",
+        "images": [
+            "tour-1.jpg",
+            "tour-2.jpg",
+            "tour-3.jpg"
+        ],
+        "startDates": [
+            "2022-01-05,10:00",
+            "2022-11-12,10:00",
+            "2022-11-07,10:00"
+        ]
+    },
+    {
+        "name": "The Kendalisada Scout",
+        "duration": 4,
+        "maxGroupSize": 6,
+        "difficulty": "difficult",
+        "ratingAverage": 0.5,
+        "ratingQuantity": 13,
+        "price": 235,
+        "summary": "Exciting adventure in Forest",
+        "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
+        "imageCover": "tour-cover-1.jpg",
+        "images": [
+            "tour-1.jpg",
+            "tour-2.jpg",
+            "tour-3.jpg"
+        ],
+        "startDates": [
+            "2022-01-05,10:00",
+            "2022-11-12,10:00",
+            "2022-11-07,10:00"
+        ]
+    },
+    {
+        "name": "The Kendalisada Region Adventurer",
+        "duration": 4,
+        "maxGroupSize": 36,
+        "difficulty": "easy",
+        "ratingAverage": 4.5,
+        "ratingQuantity": 31,
+        "price": 555,
+        "summary": "Exciting adventure in Forest",
+        "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
+        "imageCover": "tour-cover-1.jpg",
+        "images": [
+            "tour-1.jpg",
+            "tour-2.jpg",
+            "tour-3.jpg"
+        ],
+        "startDates": [
+            "2022-01-05,10:00",
+            "2022-11-12,10:00",
+            "2022-11-07,10:00"
+        ]
+    }
+]

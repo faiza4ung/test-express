@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "prod": "NODE_ENV=production node server.js"
+    "prod": "NODE_ENV=production node server.js",
+    "data-import": "node dev-data/data/import-dev-data.js --import",
+    "data-delete": "node dev-data/data/import-dev-data.js --delete"
   },
   "author": "Ungguh Faizaturrohman",
   "license": "MIT",
