@@ -2,9 +2,9 @@
   "name": "kendalisada-tour",
   "version": "1.0.0",
   "description": "API Kendalisada Tour",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon server.js"
   },
   "author": "Ungguh Faizaturrohman",
   "license": "MIT",

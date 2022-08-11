@@ -1,28 +1,32 @@
-exports.getAllTours = (req, res) => {
+exports.getAllUser = (req, res) => {
   res.status(500).json({
     status: "failed",
     message: "This route is not yet defined",
   });
 };
-exports.getTours = (req, res) => {
+
+exports.getUser = (req, res) => {
   res.status(500).json({
     status: "failed",
     message: "This route is not yet defined",
   });
 };
-exports.createTours = (req, res) => {
+
+exports.createUser = (req, res) => {
   res.status(500).json({
     status: "failed",
     message: "This route is not yet defined",
   });
 };
-exports.updateTours = (req, res) => {
+
+exports.updateUser = (req, res) => {
   res.status(500).json({
     status: "failed",
     message: "This route is not yet defined",
   });
 };
-exports.deleteTours = (req, res) => {
+
+exports.deleteUser = (req, res) => {
   res.status(500).json({
     status: "failed",
     message: "This route is not yet defined",

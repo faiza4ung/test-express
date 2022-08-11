@@ -7,9 +7,9 @@ const {
   deleteTours,
 } = require("../controllers/tourController");
 
-const appR = express.Router();
+const router = express.Router();
 
-appR.route("/").get(getAllTours).post(createTours);
-appR.route("/:id").get(getTours).patch(updateTours).delete(deleteTours);
+router.route("/").get(getAllTours).post(createTours);
+router.route("/:id").get(getTours).patch(updateTours).delete(deleteTours);
 
-module.exports = appR;
+module.exports = router;
