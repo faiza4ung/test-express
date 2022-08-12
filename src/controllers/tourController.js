@@ -1,6 +1,7 @@
 const Tour = require("../models/tourModel"),
+  APIFeatures = require("../utils/apiFeatures"),
   catchAsync = require("../utils/catchAsync"),
-  APIFeatures = require("../utils/apiFeatures");
+  AppError = require("../utils/appError");
 
 //** TOP TOUR ENDPOINT - ALIASING with middleware */
 exports.topTours = (req, res, next) => {
@@ -12,9 +13,6 @@ exports.topTours = (req, res, next) => {
 
 //** GET ALL TOUR */
 exports.getAllTours = catchAsync(async (req, res, next) => {
-  //? check query input
-  // console.log(req.query);
-
   //** EXECUTE QUERY */
   const features = new APIFeatures(Tour.find(), req.query)
     .filter()
@@ -36,8 +34,11 @@ exports.getAllTours = catchAsync(async (req, res, next) => {
 
 //** GET TOUR BY ID */
 exports.getTours = catchAsync(async (req, res, next) => {
-  const tour = await Tour.findById(req.params.id);
+  const tour = await Tour.findById(req.param.id);
   //? Tour.findOne({ _id: req.params.id })
+  if (!tour) {
+    return next(new AppError(`Data not found`, 404));
+  }
   res.status(200).json({
     status: "success",
     message: "Data Found",
@@ -62,11 +63,15 @@ exports.createTours = catchAsync(async (req, res, next) => {
 
 //** UPDATE A TOUR */
 exports.updateTours = catchAsync(async (req, res, next) => {
-  const tour = await Tour.findByIdAndUpdate(req.params.id, req.body, {
+  const tour = await Tour.findByIdAndUpdate(req.param.id, req.body, {
     new: true,
     runValidators: true,
   });
 
+  if (!tour) {
+    return next(new AppError("data not Found gaes", 404));
+  }
+  
   res.status(200).json({
     status: "success",
     message: "Data Tour Updated",
@@ -78,7 +83,11 @@ exports.updateTours = catchAsync(async (req, res, next) => {
 
 //** DELETE A TOUR */
 exports.deleteTours = catchAsync(async (req, res, next) => {
-  await Tour.findByIdAndDelete(req.params.id);
+  const tour = await Tour.findByIdAndDelete(req.param.id);
+  
+  if (!tour) {
+    return next(new AppError(`Data not found`, 404));
+  }
 
   res.status(200).json({
     status: "success",
