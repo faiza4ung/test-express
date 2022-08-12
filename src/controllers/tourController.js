@@ -1,4 +1,5 @@
-const Tour = require("../models/tourModel");
+const Tour = require("../models/tourModel"),
+  APIFeatures = require("../utils/apiFeatures");
 
 //** TOP TOUR ENDPOINT - ALIASING with middleware */
 exports.topTours = (req, res, next) => {
@@ -11,60 +12,16 @@ exports.topTours = (req, res, next) => {
 //** GET ALL TOUR */
 exports.getAllTours = async (req, res) => {
   try {
-    //** BUILD QUERY */
-    console.log(req.query); //? check query input
-
-    //** 1.A) Filtering */
-    const queryObject = { ...req.query };
-    const excludedFields = ["page", "sort", "limit", "fields"];
-    excludedFields.forEach((el) => delete queryObject[el]);
-
-    //** 1.B) Advanced filtering */
-    let queryString = JSON.stringify(queryObject);
-    queryString = queryString.replace(
-      /\b(gte|gt|lte|lt)\b/g,
-      (match) => `$${match}`
-    );
-    // console.log(JSON.parse(queryString));
-    //? { difficulty: 'mid', duration: { $gte: 5 } }
-    //? { difficulty: 'mid', duration: { gte: '5' } } <- this what we get
-    //? gte, gt, lte, lt
-    let query = Tour.find(JSON.parse(queryString));
-
-    //** 2) Sorting */
-    if (req.query.sort) {
-      const sortBy = req.query.sort.split(",").join(" ");
-      // console.log(sortBy)
-      query = query.sort(sortBy);
-      //? sort('price ratingsAverage')
-    } else {
-      query = query.sort("-ceatedAt");
-    }
-
-    //** 3) Field limiting */
-    if (req.query.fields) {
-      const fields = req.query.fields.split(",").join(" ");
-      query = query.select(fields);
-    } else {
-      query = query.select("-__v");
-    }
-
-    //** 4) Pagination */
-    const page = req.query.page * 1 || 1;
-    const limit = req.query.limit * 1 || 5;
-    const skip = (page - 1) * limit;
-
-    //? page=2&limit=5, 1-5, page 1, 6-10, page 2, dst
-    query = query.skip(skip).limit(limit);
-
-    if (req.query.page) {
-      const numTours = await Tour.countDocuments();
-      if (skip >= numTours) throw new Error("This page does not exist");
-    }
+    //? check query input
+    // console.log(req.query);
 
     //** EXECUTE QUERY */
-    const tours = await query;
-    //? query.sort().select().skip().limit()
+    const features = new APIFeatures(Tour.find(), req.query)
+      .filter()
+      .sort()
+      .limitFields()
+      .paginate();
+    const tours = await features.query;
 
     //** SEND RESPONSE */
     res.status(200).json({
