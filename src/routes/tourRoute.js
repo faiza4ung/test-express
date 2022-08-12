@@ -6,12 +6,16 @@ const express = require("express"),
     updateTours,
     deleteTours,
     topTours,
+    getTourStats,
   } = require("../controllers/tourController");
 
 const router = express.Router();
 
 //** ALIASING */
 router.route("/top-5-cheap").get(topTours, getAllTours);
+
+//** STATS */
+router.route("/tour-stats").get(getTourStats);
 
 //** ROUTE GENERAL */
 router.route("/").get(getAllTours).post(createTours);
