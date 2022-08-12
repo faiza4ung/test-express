@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+  // validator = require("validator");
 
 //** Tours Model */
 const tourSchema = new Schema(
@@ -10,6 +11,7 @@ const tourSchema = new Schema(
       trim: true,
       maxLength: [40, "a Tour must have less or equals then 40 character"],
       minLength: [10, "a Tour must have more or equals then 10 character"],
+      // validate: [validator.isAlpha, "Tour name must only contain characters"],
     },
     duration: {
       type: Number,
@@ -38,7 +40,16 @@ const tourSchema = new Schema(
       default: 0,
     },
     price: { type: Number, required: [true, "a Tour must have price"] },
-    priceDiscount: Number,
+    priceDiscount: {
+      type: Number,
+      validate: {
+        validator: function (val) {
+          //** this only points to current doc on NEW document creation */
+          return val < this.price;
+        },
+        message: "Discount price ({VALUE}) should be below regular price",
+      },
+    },
     summary: {
       type: String,
       trim: true,
