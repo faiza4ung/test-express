@@ -3,8 +3,9 @@ const Tour = require("../models/tourModel");
 //** GET ALL TOUR */
 exports.getAllTours = async (req, res) => {
   try {
-    console.log(req.query); //? check query input
     //** BUILD QUERY */
+    console.log(req.query); //? check query input
+
     //** 1.A) Filtering */
     const queryObject = { ...req.query };
     const excludedFields = ["page", "sort", "limit", "fields"];
@@ -16,7 +17,7 @@ exports.getAllTours = async (req, res) => {
       /\b(gte|gt|lte|lt)\b/g,
       (match) => `$${match}`
     );
-    console.log(JSON.parse(queryString));
+    // console.log(JSON.parse(queryString));
     //? { difficulty: 'mid', duration: { $gte: 5 } }
     //? { difficulty: 'mid', duration: { gte: '5' } } <- this what we get
     //? gte, gt, lte, lt
@@ -30,6 +31,14 @@ exports.getAllTours = async (req, res) => {
       //? sort('price ratingsAverage')
     } else {
       query = query.sort("-ceatedAt");
+    }
+
+    //** 3) Field limiting */
+    if (req.query.fields) {
+      const fields = req.query.fields.split(",").join(" ");
+      query = query.select(fields);
+    } else {
+      query = query.select("-__v");
     }
 
     //** EXECUTE QUERY */
