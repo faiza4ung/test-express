@@ -1,5 +1,13 @@
 const Tour = require("../models/tourModel");
 
+//** TOP TOUR ENDPOINT - ALIASING with middleware */
+exports.topTours = (req, res, next) => {
+  req.query.limit = "5";
+  req.query.sort = "price";
+  req.query.fields = "name,price,ratingsAverage,summary,difficulty";
+  next();
+};
+
 //** GET ALL TOUR */
 exports.getAllTours = async (req, res) => {
   try {
