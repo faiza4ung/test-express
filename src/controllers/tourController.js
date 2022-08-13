@@ -19,15 +19,15 @@ exports.getAllTours = catchAsync(async (req, res, next) => {
     .sort()
     .limitFields()
     .paginate();
-  const tours = await features.query;
+  const tour = await features.query;
 
   //** SEND RESPONSE */
   res.status(200).json({
     status: "success",
-    result: tours.length,
+    result: tour.length,
     message: "Data Found",
     data: {
-      tours,
+      tour,
     },
   });
 });
@@ -36,9 +36,11 @@ exports.getAllTours = catchAsync(async (req, res, next) => {
 exports.getTours = catchAsync(async (req, res, next) => {
   const tour = await Tour.findById(req.param.id);
   //? Tour.findOne({ _id: req.params.id })
+
   if (!tour) {
-    return next(new AppError(`Data not found`, 404));
+    return next(new AppError(`No data with that ID`, 404));
   }
+
   res.status(200).json({
     status: "success",
     message: "Data Found",
@@ -69,9 +71,9 @@ exports.updateTours = catchAsync(async (req, res, next) => {
   });
 
   if (!tour) {
-    return next(new AppError("data not Found gaes", 404));
+    return next(new AppError(`No data with that ID`, 404));
   }
-  
+
   res.status(200).json({
     status: "success",
     message: "Data Tour Updated",
@@ -84,9 +86,9 @@ exports.updateTours = catchAsync(async (req, res, next) => {
 //** DELETE A TOUR */
 exports.deleteTours = catchAsync(async (req, res, next) => {
   const tour = await Tour.findByIdAndDelete(req.param.id);
-  
+
   if (!tour) {
-    return next(new AppError(`Data not found`, 404));
+    return next(new AppError(`No data with that ID`, 404));
   }
 
   res.status(200).json({
