@@ -30,6 +30,7 @@ const userSchema = new Schema({
       message: "Password ar not the same",
     },
   },
+  passwordChangedAt: Date,
 });
 
 //** hashing password before save */
@@ -45,11 +46,26 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
+//** Login Method */
 userSchema.methods.correctPassword = async function (
   candidatePassword,
   userPassword
 ) {
   return await compare(candidatePassword, userPassword);
+};
+
+//** Expired token when changed password */
+userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
+  if (this.passwordChangedAt) {
+    const changedTimestamp = parseInt(
+      this.passwordChangedAt.getTime() / 1000,
+      10
+    );
+    return JWTTimestamp < changedTimestamp; // 100 < 200 = false
+  }
+
+  // False means NOT changed
+  return false;
 };
 
 module.exports = model("User", userSchema);
