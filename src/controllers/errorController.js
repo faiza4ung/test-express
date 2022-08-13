@@ -1,3 +1,6 @@
+const { handleCastErrorDB } = require("../utils/handlerError");
+
+//** SEND RESPONSE ERROR ON DEV */
 const sendErrorDev = (err, res) => {
   res.status(err.statusCode).json({
     status: err.status,
@@ -7,6 +10,7 @@ const sendErrorDev = (err, res) => {
   });
 };
 
+//** SEND RESPONSE ERROR ON PROD */
 const sendErrorProd = (err, res) => {
   //** Operational, trusted error: send message to client */
   if (err.isOperational) {
@@ -33,8 +37,11 @@ module.exports = (err, req, res, next) => {
   err.status = err.status || "error";
 
   if (process.env.NODE_ENV === "development") {
+    console.log(err.name);
     sendErrorDev(err, res);
   } else if (process.env.NODE_ENV === "production") {
+    // let error = { ...err };
+    if (err.name === "CastError") err = handleCastErrorDB(err);
     sendErrorProd(err, res);
   }
 };

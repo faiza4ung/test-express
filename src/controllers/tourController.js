@@ -34,12 +34,13 @@ exports.getAllTours = catchAsync(async (req, res, next) => {
 
 //** GET TOUR BY ID */
 exports.getTours = catchAsync(async (req, res, next) => {
-  const tour = await Tour.findById(req.param.id);
+  const tour = await Tour.findById(req.params.id);
   //? Tour.findOne({ _id: req.params.id })
 
-  if (!tour) {
-    return next(new AppError(`No data with that ID`, 404));
-  }
+  //? sintaks di bawah bekerja jika req.param.id
+  // if (!tour) {
+  //   return next(new AppError(`No data with that ID`, 404));
+  // }
 
   res.status(200).json({
     status: "success",
