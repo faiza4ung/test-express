@@ -1,4 +1,7 @@
-const { handleCastErrorDB } = require("../utils/handlerError");
+const {
+  handleCastErrorDB,
+  handleDuplicateFieldsDB,
+} = require("../utils/handlerError");
 
 //** SEND RESPONSE ERROR ON DEV */
 const sendErrorDev = (err, res) => {
@@ -42,6 +45,7 @@ module.exports = (err, req, res, next) => {
   } else if (process.env.NODE_ENV === "production") {
     // let error = { ...err };
     if (err.name === "CastError") err = handleCastErrorDB(err);
+    if (err.code === 11000) err = handleDuplicateFieldsDB(err);
     sendErrorProd(err, res);
   }
 };

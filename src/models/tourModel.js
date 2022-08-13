@@ -82,9 +82,9 @@ tourSchema.virtual("durationWeeks").get(function () {
 });
 
 //** document middleware - run before .save() and .create() .insertMany() */
-tourSchema.pre("save", function () {
-  console.log(this); //** Minus middleware slug */
-});
+// tourSchema.pre("save", function () {
+//   // console.log(this); //** Minus middleware slug */
+// });
 
 //** QUERY MIDDLEWARE  - Cek kecepatan query
 tourSchema.pre(/^find/, function (next) {
