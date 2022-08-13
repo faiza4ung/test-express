@@ -8,7 +8,8 @@ const express = require("express"),
     topTours,
     getTourStats,
     getMonthlyPlan,
-  } = require("../controllers/tourController");
+  } = require("../controllers/tourController"),
+  { protected } = require("../controllers/authController");
 
 const router = express.Router();
 
@@ -22,7 +23,7 @@ router.route("/tour-stats").get(getTourStats);
 router.route("/monthly-plan/:year").get(getMonthlyPlan);
 
 //** ROUTE GENERAL */
-router.route("/").get(getAllTours).post(createTours);
+router.route("/").get(protected, getAllTours).post(createTours);
 router.route("/:id").get(getTours).patch(updateTours).delete(deleteTours);
 
 module.exports = router;
