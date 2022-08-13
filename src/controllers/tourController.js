@@ -71,9 +71,9 @@ exports.updateTours = catchAsync(async (req, res, next) => {
     runValidators: true,
   });
 
-  if (!tour) {
-    return next(new AppError(`No data with that ID`, 404));
-  }
+  // if (!tour) {
+  //   return next(new AppError(`No data with that ID`, 404));
+  // }
 
   res.status(200).json({
     status: "success",
@@ -86,7 +86,7 @@ exports.updateTours = catchAsync(async (req, res, next) => {
 
 //** DELETE A TOUR */
 exports.deleteTours = catchAsync(async (req, res, next) => {
-  const tour = await Tour.findByIdAndDelete(req.param.id);
+  const tour = await Tour.findByIdAndDelete(req.params.id);
 
   if (!tour) {
     return next(new AppError(`No data with that ID`, 404));

@@ -7,7 +7,7 @@ const catchAsync = require("../utils/catchAsync"),
 
 const signToken = (id) => {
   return sign({ id }, JWT_KEY, {
-    expiresIn: "10m",
+    expiresIn: "1h",
   });
 };
 
@@ -17,7 +17,8 @@ exports.signup = catchAsync(async (req, res, next) => {
     email: req.body.email,
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
-    passwordChangedAt: req.body.passwordChangedAt,
+    role: req.body.role,
+    // passwordChangedAt: req.body.passwordChangedAt,
   });
 
   const token = signToken(newUser._id);
@@ -91,3 +92,16 @@ exports.protected = catchAsync(async (req, res, next) => {
   req.user = freshUser;
   next();
 });
+
+exports.restrictedTo = (...roles) => {
+  return (req, res, next) => {
+    //role ['admin','lead-guide'], role='user'
+    if (!roles.includes(req.user.role)) {
+      return next(
+        new AppError("You do not have permission to perform this action", 403)
+      );
+    }
+
+    next();
+  };
+};
