@@ -1,34 +1,12 @@
 [
     {
-        "name": "The Kendalisada Adventure",
-        "duration": 8,
-        "maxGroupSize": 8,
-        "difficulty": "hard",
-        "ratingsAverage": 2.5,
-        "ratingsQuantity": 3,
-        "price": 210,
-        "summary": "Exciting adventure in Forest",
-        "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
-        "imageCover": "tour-cover-1.jpg",
-        "images": [
-            "tour-1.jpg",
-            "tour-2.jpg",
-            "tour-3.jpg"
-        ],
-        "startDates": [
-            "2022-01-05,10:00",
-            "2022-11-12,10:00",
-            "2022-11-07,10:00"
-        ]
-    },
-    {
-        "name": "The Kendalisada Journey",
-        "duration": 4,
-        "maxGroupSize": 3,
+        "name": "The Kendalisada",
+        "duration": 6,
+        "maxGroupSize": 32,
         "difficulty": "medium",
-        "ratingsAverage": 4,
-        "ratingsQuantity": 23,
-        "price": 100,
+        "ratingsAverage": 3.5,
+        "ratingsQuantity": 40,
+        "price": 225,
         "summary": "Exciting adventure in Forest",
         "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
         "imageCover": "tour-cover-1.jpg",
@@ -39,39 +17,58 @@
         ],
         "startDates": [
             "2022-01-05,10:00",
-            "2022-11-12,10:00",
-            "2022-11-07,10:00"
-        ]
-    },
-    {
-        "name": "The Kendalisada Touring",
-        "duration": 4,
-        "maxGroupSize": 9,
-        "difficulty": "easy",
-        "ratingsAverage": 3.55,
-        "ratingsQuantity": 6,
-        "price": 350,
-        "summary": "Exciting adventure in Forest",
-        "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
-        "imageCover": "tour-cover-1.jpg",
-        "images": [
-            "tour-1.jpg",
-            "tour-2.jpg",
-            "tour-3.jpg"
-        ],
-        "startDates": [
-            "2022-01-05,10:00",
-            "2022-11-12,10:00",
             "2022-11-07,10:00"
         ]
     },
     {
         "name": "The Kendalisada Camp",
+        "duration": 10,
+        "maxGroupSize": 16,
+        "difficulty": "easy",
+        "ratingsAverage": 4.5,
+        "ratingsQuantity": 20,
+        "price": 110,
+        "summary": "Exciting adventure in Forest",
+        "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
+        "imageCover": "tour-cover-1.jpg",
+        "images": [
+            "tour-1.jpg",
+            "tour-2.jpg",
+            "tour-3.jpg"
+        ],
+        "startDates": [
+            "2022-07-12,10:00",
+            "2022-11-07,10:00"
+        ]
+    },
+    {
+        "name": "The Kendalisada Tour",
         "duration": 3,
-        "maxGroupSize": 6,
+        "maxGroupSize": 8,
         "difficulty": "hard",
-        "ratingsAverage": 1.5,
-        "ratingsQuantity": 16,
+        "ratingsAverage": 2.5,
+        "ratingsQuantity": 80,
+        "price": 175,
+        "summary": "Exciting adventure in Forest",
+        "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
+        "imageCover": "tour-cover-1.jpg",
+        "images": [
+            "tour-1.jpg",
+            "tour-2.jpg",
+            "tour-3.jpg"
+        ],
+        "startDates": [
+            "2022-01-05,10:00",
+            "2022-02-12,10:00"
+        ]
+    },
+    {
+        "name": "The Kendalisada Luxury",
+        "duration": 16,
+        "maxGroupSize": 22,
+        "difficulty": "hard",
+        "ratingsAverage": 3.5,
+        "ratingsQuantity": 48,
         "price": 450,
         "summary": "Exciting adventure in Forest",
         "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
@@ -83,62 +80,18 @@
         ],
         "startDates": [
             "2022-01-05,10:00",
-            "2022-11-12,10:00",
-            "2022-11-07,10:00"
+            "2022-08-12,10:00",
+            "2022-10-07,10:00"
         ]
     },
     {
-        "name": "The Kendalisada Jamboree",
-        "duration": 4,
-        "maxGroupSize": 27,
-        "difficulty": "easy",
-        "ratingsAverage": 4.5,
-        "ratingsQuantity": 13,
-        "price": 220,
-        "summary": "Exciting adventure in Forest",
-        "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
-        "imageCover": "tour-cover-1.jpg",
-        "images": [
-            "tour-1.jpg",
-            "tour-2.jpg",
-            "tour-3.jpg"
-        ],
-        "startDates": [
-            "2022-01-05,10:00",
-            "2022-11-12,10:00",
-            "2022-11-07,10:00"
-        ]
-    },
-    {
-        "name": "The Kendalisada Grand Camp V",
-        "duration": 4,
-        "maxGroupSize": 10,
-        "difficulty": "easy",
-        "ratingsAverage": 5,
-        "ratingsQuantity": 13,
-        "price": 135,
-        "summary": "Exciting adventure in Forest",
-        "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
-        "imageCover": "tour-cover-1.jpg",
-        "images": [
-            "tour-1.jpg",
-            "tour-2.jpg",
-            "tour-3.jpg"
-        ],
-        "startDates": [
-            "2022-01-05,10:00",
-            "2022-11-12,10:00",
-            "2022-11-07,10:00"
-        ]
-    },
-    {
-        "name": "The Kendalisada Scout",
+        "name": "The Kendalisada Adventure",
         "duration": 9,
-        "maxGroupSize": 6,
-        "difficulty": "medium",
-        "ratingsAverage": 2.5,
-        "ratingsQuantity": 13,
-        "price": 235,
+        "maxGroupSize": 12,
+        "difficulty": "easy",
+        "ratingsAverage": 5.0,
+        "ratingsQuantity": 20,
+        "price": 375,
         "summary": "Exciting adventure in Forest",
         "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
         "imageCover": "tour-cover-1.jpg",
@@ -149,18 +102,61 @@
         ],
         "startDates": [
             "2022-01-05,10:00",
-            "2022-11-12,10:00",
-            "2022-11-07,10:00"
+            "2022-04-12,10:00",
+            "2022-12-07,10:00"
         ]
     },
     {
-        "name": "The Kendalisada Regionturer",
-        "duration": 6,
-        "maxGroupSize": 36,
+        "name": "The Kendalisada Outdoor",
+        "duration": 4,
+        "maxGroupSize": 42,
         "difficulty": "medium",
-        "ratingsAverage": 4.5,
-        "ratingsQuantity": 31,
-        "price": 555,
+        "ratingsAverage": 1.5,
+        "ratingsQuantity": 50,
+        "price": 275,
+        "summary": "Exciting adventure in Forest",
+        "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
+        "imageCover": "tour-cover-1.jpg",
+        "images": [
+            "tour-1.jpg",
+            "tour-2.jpg",
+            "tour-3.jpg"
+        ],
+        "startDates": [
+            "2022-01-05,10:00",
+            "2022-08-12,10:00",
+            "2022-12-07,10:00"
+        ]
+    },
+    {
+        "name": "The Kendalisada Maxi",
+        "duration": 12,
+        "maxGroupSize": 64,
+        "difficulty": "hard",
+        "ratingsAverage": 3.5,
+        "ratingsQuantity": 75,
+        "price": 445,
+        "summary": "Exciting adventure in Forest",
+        "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
+        "imageCover": "tour-cover-1.jpg",
+        "images": [
+            "tour-1.jpg",
+            "tour-2.jpg",
+            "tour-3.jpg"
+        ],
+        "startDates": [
+            "2022-01-05,10:00",
+            "2022-03-07,10:00"
+        ]
+    },
+    {
+        "name": "The Kendalisada Kemping",
+        "duration": 6,
+        "maxGroupSize": 32,
+        "difficulty": "easy",
+        "ratingsAverage": 3.5,
+        "ratingsQuantity": 40,
+        "price": 225,
         "summary": "Exciting adventure in Forest",
         "description": "Deskripsi panjang tapi malas ketik ya seadanya saja intinya ini konten deskripsi",
         "imageCover": "tour-cover-1.jpg",
@@ -172,7 +168,7 @@
         "startDates": [
             "2022-01-05,10:00",
             "2022-11-12,10:00",
-            "2022-11-07,10:00"
+            "2022-04-07,10:00"
         ]
     }
 ]

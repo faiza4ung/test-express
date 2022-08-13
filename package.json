@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "nodemon server.js",
     "prod": "NODE_ENV=production node server.js",
-    "data-import": "node dev-data/data/import-dev-data.js --import",
-    "data-delete": "node dev-data/data/import-dev-data.js --delete"
+    "user-import": "node dev-data/data/user-dev-data.js --import",
+    "user-delete": "node dev-data/data/user-dev-data.js --delete",
+    "tour-import": "node dev-data/data/import-dev-data.js --import",
+    "tour-delete": "node dev-data/data/import-dev-data.js --delete"
   },
   "author": "Ungguh Faizaturrohman",
   "license": "MIT",
