@@ -14,6 +14,6 @@ exports.connectDB = async (url) => {
     console.log(
       "Galat dalam mengoneksikan ke database, saya undur diri dulu mas"
     );
-    process.exit();
+    // process.exit();
   }
 };
