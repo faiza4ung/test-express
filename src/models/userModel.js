@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose"),
-  { hash } = require("bcryptjs"),
+  { hash, compare } = require("bcryptjs"),
   { default: isEmail } = require("validator/lib/isEmail");
 
 //** name, email, photo, password, passwordConfirm */
@@ -17,6 +17,7 @@ const userSchema = new Schema({
     type: String,
     required: [true, "Please provide a password"],
     minLength: [8, "Minimal 8"],
+    select: false,
   },
   passwordConfirm: {
     type: String,
@@ -43,5 +44,12 @@ userSchema.pre("save", async function (next) {
   this.passwordConfirm = undefined;
   next();
 });
+
+userSchema.methods.correctPassword = async function (
+  candidatePassword,
+  userPassword
+) {
+  return await compare(candidatePassword, userPassword);
+};
 
 module.exports = model("User", userSchema);
