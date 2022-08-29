@@ -23,11 +23,16 @@ router.route("/tour-stats").get(getTourStats);
 router.route("/monthly-plan/:year").get(getMonthlyPlan);
 
 //** ROUTE GENERAL */
-router.route("/").get(protected, getAllTours).post(createTours);
 router
-  .route("/:id")
-  .get(getTours)
-  .patch(updateTours)
-  .delete(protected, restrictedTo("admin", "lead-guide"), deleteTours);
+  .route("/")
+  .get(
+    // protected,
+    getAllTours
+  )
+  .post(createTours);
+router.route("/:id").get(getTours).patch(updateTours).delete(
+  // protected, restrictedTo("admin", "lead-guide"),
+  deleteTours
+);
 
 module.exports = router;

@@ -21,11 +21,12 @@
     "express-validator": "^6.12.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.3",
+    "slugify": "^1.6.5",
     "validator": "^13.6.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.12"
   },
   "engines": {
     "node": ">=14.0.0"

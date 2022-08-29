@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
-  // validator = require("validator");
+const slugify = require("slugify");
+// validator = require("validator");
 
 //** Tours Model */
 const tourSchema = new Schema(
@@ -13,6 +14,7 @@ const tourSchema = new Schema(
       minLength: [10, "a Tour must have more or equals then 10 character"],
       // validate: [validator.isAlpha, "Tour name must only contain characters"],
     },
+    slug: String,
     duration: {
       type: Number,
       required: [true, "a Tour must have durations"],
@@ -65,15 +67,18 @@ const tourSchema = new Schema(
     },
     images: [String],
     startDates: [Date],
+    createdAt: {
+      type: Date,
+      default: Date.now(),
+      select: false,
+    },
     //? install npm package slugify
-    //* slug: String,
     secretTour: {
       type: Boolean,
       default: false,
     },
   },
-  { toJSON: { virtuals: true }, toObject: { virtuals: true } },
-  { timestamps: true }
+  { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
 
 //** virtual property */
@@ -82,9 +87,10 @@ tourSchema.virtual("durationWeeks").get(function () {
 });
 
 //** document middleware - run before .save() and .create() .insertMany() */
-// tourSchema.pre("save", function () {
-//   // console.log(this); //** Minus middleware slug */
-// });
+tourSchema.pre("save", function (next) {
+  this.slug = slugify(this.name, { lower: true });
+  next();
+});
 
 //** QUERY MIDDLEWARE  - Cek kecepatan query
 tourSchema.pre(/^find/, function (next) {
@@ -94,7 +100,6 @@ tourSchema.pre(/^find/, function (next) {
 });
 
 tourSchema.post(/^find/, function (docs, next) {
-  // console.log(docs);
   console.log(`Query took ${Date.now() - this.start} ms!`);
   next();
 });
